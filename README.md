@@ -1,2 +1,2 @@
 # icrywhileusleep
-Under construction.  Check out icrywhileusleep.webcomic.ws in the meantime.
+Under construction.  Check out <a href="icrywhileusleep.webcomic.ws">icrywhileusleep.webcomic.ws</a> in the meantime.
