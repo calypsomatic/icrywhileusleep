@@ -1,2 +1,2 @@
 # icrywhileusleep
-An actual webpage maybe
+Under construction.  Check out icrywhileusleep.webcomic.ws in the meantime.
