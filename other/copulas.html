@@ -1,0 +1,726 @@
+---
+title: Are Languages With the Zero-Copula Construction More Efficient?
+layout: default
+---
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
+	<meta name="created" content="2018-01-20T17:42:00Z"/>
+	<meta name="changedby" content="Microsoft Office User"/>
+	<meta name="changed" content="2018-02-21T14:48:00Z"/>
+	<style type="text/css">
+		@page { margin: 0.79in }
+		p { margin-bottom: 0.1in; line-height: 120% }
+		a.western:visited { so-language: en-US }
+		a.cjk:visited { so-language: zh-CN }
+		a.ctl:visited { so-language: hi-IN }
+	</style>
+</head>
+<div style="display: inline;float: right;">
+	<a class="navButton" href="{{site.baseurl}}/index.html"> Home </a>
+</div>
+
+<body lang="en-US" dir="ltr">
+<p style="margin-bottom: 0in; line-height: 100%; page-break-before: always">
+Are Languages with the Zero-Copula Construction More Efficient? 
+Preliminary Exploration</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%">	WHO NEEDS A COPULA
+ANYWAY</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%">	The first time I
+ran into the concept of the copula was when I was studying Arabic
+some eight years or so ago.  The way it was explained to me was that
+to say “She is beautiful” would sound sort of absurd; it would be
+literally equating “her” with “beautiful”, essentially saying
+she is the Embodiment of Beauty.  Which, ok, you can do in poetry or
+something, but for everyday conversation there’s no need to be so
+dramatic – just say “She beautiful” and everyone understands
+what you mean.  There’s no need to say “is” here.  That word
+(usually a verb) that indicates that two things in a sentence are the
+same is called the “copula”.  In English, we almost always use
+it, except for certain cases, usually stylistic, like in poetry,
+headlines, or just certain idioms. But in Arabic, they don’t
+require it in basic sentences like “She is beautiful” or “He is
+the manager here”.  This is called the “zero copula” - pretty
+self-explanatory.  Turns out there’s a range over languages of what
+situations you would use the copula in.  In Arabic you use the copula
+in past tense: “They <u>were</u> photographers”, but not in
+present tense: “They photographers.”  In other languages you
+might not use it even in past tense.</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%">	I gave up on Arabic
+(or at least, stopped studying it) in fairly short order, so it
+wasn’t until recently when I realized my life was too easy and
+started studying Russian that I was reminded of the zero copula
+again.  Russian is the same as Arabic in this way – you wouldn’t
+use the copula in present tense: “He tall” instead of “He is
+tall.”  And confronting the concept a second time around, I found
+myself thinking that this makes a lot of sense.  Using the copula, in
+these simple present-tense sentences, really seems unnecessary. 
+Inefficient.  It’s pretty clear what you mean.  You want to say
+something to indicate past tense so you may as well use a past-tense
+copula, but for present tense, why bother?  We all have human brains,
+and for a human brain it sure seems like the most obvious way to
+interpret a sentence, so that the information contained in the word
+“is” is redundant (as well as resulting in confusing phrases like
+“the word ‘is’ is redundant”).  These zero-copula languages
+must be more efficient – that is, mathematically, each word must
+contain more information, on average, so that you require fewer words
+to convey the same amount of information.  (Yes there’s more to
+language than purely conveying information ROBIN HANSON but you can
+still analyze it from this perspective, since that’s clearly a
+significant part of it.)</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%">	It does make sense
+to think about how much information a single word contains.  Consider
+the sentence, “The wolf is black.”  The word “the” tells you
+a lot less than the word “wolf”.  I could say “wolf is black”
+and you really know pretty much the same amount of information as the
+first sentence.  (Incidentally, Russian doesn’t have any articles
+like “the” or “a” either, I guess it’s an EXTRA efficient
+language.)  But if I drop out the word “wolf”: “The  ---- is
+black”, well, you have no idea what I’m talking about. So “the”
+contains a lot less information than “wolf”.</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%">	HERE COMES THE MATH</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%">	So our lord Shannon
+gave an actual mathematical definition to information, more precise
+than “oh clearly ‘the’ tells you less than ‘wolf’”.  How
+much less?  
+</p>
+<p style="margin-bottom: 0in; line-height: 100%">	The Shannon
+information content of something is related to its probability.  The
+less likely something is to occur, the more information you gain when
+it does occur.  For example, if someone wears a t-shirt and jeans
+every day, then seeing them in a t-shirt and jeans doesn’t give you
+much information.  But if one day you see them in a fancy suit, then
+by nature of that being a less probable, rarer event, you’ve gained
+some information – something must be happening today!</p>
+<p style="margin-bottom: 0in; line-height: 100%">	Probability, in
+this case, is actually more like frequency – how frequently does a
+word actually get used in a language?  We figure this out by reading
+everything that’s ever been written in the language, and just
+tallying up how many times each word occurs.  Divide that count by
+the sum of counts of all words, and you have a word’s frequency. 
+This collection of words and their frequencies is called an ensemble.
+Take the log of the inverse of that frequency – and voila!  A
+measure of information:</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%">	Shannon information
+content: h(x=a<sub>i</sub>) = log<sub>2 </sub>(1/p<sub>i</sub>)</p>
+<p style="margin-bottom: 0in; line-height: 100%">	(h is the function
+that calculates information content, feed it a variable x with the
+value a<sub>i</sub> – if you list all the words of the ensemble and
+number them, i is the number of the word)</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%">	Now that’s only
+for this one word.  What I’m actually interested in is the
+information of the entire language (this is called entropy, for cool
+reasons that I don’t remember but I think yes, descended from
+thermodynamic entropy somehow).  Luckily, that’s friggin’ easy. 
+Just multiply the information of each word by its probability and
+then add all those mothers up.  Bam! Entropy of an ensemble:</p>
+<p style="margin-bottom: 0in; line-height: 100%">	</p>
+<p style="margin-bottom: 0in; line-height: 100%">	H(X) = sum<sub>i</sub>
+(p<sub>i</sub>*log<sub>2</sub>(1/p<sub>i</sub>))</p>
+<p style="margin-bottom: 0in; line-height: 100%">	</p>
+<p style="margin-bottom: 0in; line-height: 100%">	So in the case of a
+language, you get one number that measures the information of that
+entire language.  A higher number means that there is a higher
+average information per word.  So now my naïve rambling of ‘hey
+man I bet languages with zero copula are like more efficient and
+stuff’ can actually be measured and evaluated.</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%">	LET’S DO IT</p>
+<p style="margin-bottom: 0in; line-height: 100%">	</p>
+<p style="margin-bottom: 0in; line-height: 100%">	To see if it’s a
+general trend I’d have to get this number for as many languages as
+possible.  This isn’t all that straightforward.  I did a bit of
+searching around and couldn’t seem to find a table anywhere that
+just listed it for all the languages in the world.  Ok, that’s not
+a problem, it’s pretty easy to calculate, instead I just need all
+the texts of all the languages in the world so I can count up all the
+words and their occurrences.  Well, the internet is almost that but
+it’s not very well organized. So I went looking around for already
+existing corpuses.  Of which there are actually are plenty, sort of,
+the majority of them on the awesome website for the awesome
+Linguistic Data Consortium:</p>
+<p style="margin-bottom: 0in; line-height: 100%"><a class="western" href="https://catalog.ldc.upenn.edu/" target="_top">https://catalog.ldc.upenn.edu/</a></p>
+<p style="margin-bottom: 0in; line-height: 100%">except I can’t
+actually GET the data without being a member and it’s supposed to
+be for like, real people at real institutions so I’m not sure I
+even COULD join as an individual even if I wanted to play $2000 just
+to pursue this random thought of mine.  So instead I kept looking
+elsewhere until eventually I found THIS wonderful project:</p>
+<p style="margin-bottom: 0in; line-height: 100%"><a class="western" href="https://github.com/hermitdave/FrequencyWords/" target="_top">https://github.com/hermitdave/FrequencyWords/</a></p>
+<p style="margin-bottom: 0in; line-height: 100%">which is even more
+exactly what I wanted: just a list, by language, of all the words and
+how many times those words occurred.  The source is from movies,
+actually, so it’s going to be a different set of words than the
+ones that come from written text, but it’s still going to be
+representative of the language, right?  And it’s definitely a
+treasure trove but it’s only about 30 languages, which is not a
+whole lot compared to the some 6000 that exist.  But it’s a start. 
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%">	The next step was
+actually harder, which was to label each language as zero-copula or
+not.  Again, there’s no damn table of languages with a “zero
+copula? Yes/no” column.  You couldn’t even damn go to the
+Wikipedia page on the language and look because it’s not a piece of
+metadata or listed anywhere in any easy to find format.  The thing is
+that the whole zero copula thing is ‘are there grammatical
+situations in this language where the copula is not there’ and
+that’s always yes, you just have to find out in WHICH situations
+and how universal, and blah de blah.  The best I could do was the
+wonderful wonderful World Atlas of Language Structures, which had a
+chapter on the zero copula just for me:</p>
+<p style="margin-bottom: 0in; line-height: 100%">
+<a class="western" href="http://wals.info/chapter/120" target="_top">http://wals.info/chapter/120</a></p>
+<p style="margin-bottom: 0in; line-height: 100%"> which was very
+close to exactly the table that I was looking for, except I don’t
+know what criteria they use to decide which languages to list at all,
+so some that were present in my corpus weren’t there.  I did my
+best to investigate those missing languages to see if I could label
+them “zero copula yes/no” but without studying or knowing the
+first thing about them in most cases I really didn’t feel confident
+labelling them, so I had to exclude a couple languages from the
+dataset.  That brought the number of data points down even more, but,
+ok, for a first pass, a few dozen is nothing to sneeze at.</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%">	And that’s it!  
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<table width="442" cellpadding="7" cellspacing="0">
+	<col width="132">
+	<col width="133">
+	<col width="132">
+	<tr valign="top">
+		<td width="132" height="5" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif"><b>Language</b></font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif"><b>Entropy</b></font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif"><b>Zero
+			Copula</b></font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Greek</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">11.036768</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">1</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">English</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">9.91789644</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">1</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Icelandic</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">10.6334764</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">1</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Italian</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">10.8204408</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">1</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Arabic</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">12.5347624</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">0</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Czech</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">11.7213583</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">0</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Estonian</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">11.3217516</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">1</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Indonesian</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">9.93464691</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">0</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Spanish</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">10.5502229</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">1</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Russian</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">11.6426266</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">0</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Dutch</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">9.82311298</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">1</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Portuguese</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">10.3395604</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">1</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Turkish</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">12.6328705</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">0</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Latvian</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">11.6488848</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">0</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Lithuanian</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">12.1635837</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">0</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Romanian</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">10.5867293</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">1</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Polish</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">11.8310817</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">0</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">French</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">10.1053896</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">1</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Bulgarian</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">10.8745093</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">1</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Ukrainian</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">11.4108081</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">0</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Croatian</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">11.4931293</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">1</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">German</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">10.5569109</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">1</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Farsi</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">11.0020978</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">1</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Finnish</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">12.557681</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">1</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Hungarian</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">11.9924467</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">0</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Hebrew</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">11.7588125</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">0</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Albanian</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">10.4102589</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">1</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Korean</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">12.1798089</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">1</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="6" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Swedish</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">10.0132267</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">1</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="132" height="5" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p><font color="#000000"><font face="Calibri, sans-serif">Malay</font></font></p>
+		</td>
+		<td width="133" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">10.3752016</font></font></p>
+		</td>
+		<td width="132" style="border: 1px solid #000000; padding: 0in 0.08in">
+			<p align="right"><font color="#000000"><font face="Calibri, sans-serif">1</font></font></p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%">Table 1 –
+Languages and Their Entropies – 0 means zero copula is possible in
+the language, 1 means it is not</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%">	So obviously
+zero-copula == highest entropy is not a law – Finnish has one of
+the highest values and is not a zero-copula language.  But of course
+there’s many other factors that go into this.  All I think is that
+the copula is going to be a contributor, so overall, on average,
+zero-copula languages will tend to have higher entropies.  And yes,
+if you take the average of all the zero-copula languages you get
+11.75, whereas the average of the others is 10.77.  Ok, cool!  Let’s
+do some statistics.</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%">	Here’s my little
+game I played:  
+</p>
+<p style="margin-bottom: 0in; line-height: 100%">	Sure, it looks like
+I’ve found a difference between zero-copula languages and
+non-zero-copula languages, but is it a significant difference?  In
+these samples I ended up having 19 non-zero-copula languages and 11
+zero-copula languages.  If I divide the group of 30 languages into
+random groups of 19 and 11, of course one group is going to have a
+higher mean entropy than the other.  How do I know this is telling me
+that it’s actually a result of zero-copulas languages *actually*
+having a higher entropy?  Well, you play the re-sampling game, and
+select 11 random languages out of the group of 30 and see what their
+mean entropy is.  Then you do it again, a couple million times, and
+that’ll tell you how often you end up with entropies as high as
+11.75 with any random group of languages.  If you get something like
+11.75 pretty often with any random group, then that probably means it
+was just a coincidence.</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><img src="data:image/png;base64,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7drYbbfdok+fPsUxWYzJIsW0adPaXX7r/PPPz8PH/fffXwwYixYtin79+sXkyZOL4wYOHBgXXXRRXHvttbFy5coYNmxYxecEAAAAAICuEFro0OOPP57fx+S1117LLx/28ssv55EiWzGSXXorCxovvvhibNiwIY444oh2z+3fv3+MHj06vxdKq+zSXYccckh++bG2xowZE5s2bcofz6JIpecEAAAAAICuEFro0C9+8Yv46KOP4rTTTstXjNxwww35fU9uuummeO+99/IVL6tWrcpXuOy///5bPD/b1/bSXdnYbY3LvPHGG8VxlZwTAAAAAAC6QmihQ++//358+OGHcemll+YrWDJ/9md/FuvWrYvbbrst/sf/+B/545lsdcvmqqqqio9nsj9va1zr420/VmpOAAAAAADoCqGFDmX3Y8mcffbZ7fafc845ceutt8azzz5bHJPFl801NzcXH2+db1vj2n69Ss8JAAAAAABdIbTQoaFDh8bPf/7z2G+//drt33ffffOPq1evjoMOOii/F0p2aa7NZfuyOVpll+hqvZTX5uNav17ruErOuS1Tp06NPffcs92+SZMm5RsAAAAAsGPce++9+dZWdmsD6AmEFjqU3Tj+sccei5UrV8bBBx9c3N8aNrLgMnLkyOjXr18sW7YszjjjjOKY7N4u2Y3ozzrrrOK+7Kbz2T1eskuStb15/XPPPZffPyV7PFPpObclu3xaXV1dp+MAAAAAgPLZ2i87P//88/n7l1BpQgsdmjhxYtxwww3x3e9+N0444YTi/u985zvRv3//OP7442PIkCExbty4aGhoiJkzZ8bgwYPzMXfeeWd88MEH+RytssAxb968/P4uV111Vb5v/fr1sXDhwjj66KNj2LBh+b5KzwkAAAAAAF0htNChbDXIX/7lX8btt9+er/zIwsqPf/zj+P73vx8zZsyIT37yk/m4WbNmxTHHHBPHHXdcXHzxxfHaa6/F/Pnz46STTorx48cX5xszZkyceeaZMX369Hjrrbdi+PDheRB59dVX86/RViXnBAAAAACArhBa6FR20/sDDzwwjxYPPvhg/uf/+T//Z1x++eXFMYcffnh+ibFrrrkmX1Wyxx57xOTJk2P27NlbzHfXXXflK0qylSXZPV5GjRoVDz/8cB5A2qr0nAAAAAAA0BmhhU594hOfyCNGtnVk7Nix8eST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X/qr7fn9est293bM8/T//3HzebZXueYp51zm6Z55yjmXebZvnu0937vjmMyzY+Yp51zm6Z55yjmXeXaueco5VznnyX4WLvXnz1/EunX3x4QJE0qY42P9+w+MuXPnlPzvj1313x6vv/56fp+WchxP9t94n332KXkeoPxa36vb1nt60F2EFnqV3XbbreWH2nVb7G9ubi4+vjW/+tWv8o/l+O0ldm1Tpkyp9CH0Mt8t0zxbu79Kyvlervu0lPN+Lz3tmMzTfXOZp+vzlPr63pP/bubZsXOZp3vmKedc5tm55innXOWap1w/f5buo4/W+fdHJ84555xKHwLQTbL37o455phKHwa9mNBCr5Itzd7a5cFaVzIMHTp0q8876aSToqGhIT796U9vM8YAAAAAAN0nW8mSRZbsvTuoJKGFXmX06NGxZMmSeP/992P33Xcv7n/uueeiT58++eNbky0TPvfcc7vpKAEAAACArrCShZ5AaKFXOeOMM2LevHlx22235ffkyKxfvz4WLlwYRx99dAwbNqzCRwgAAAAAwM5EaKFXGTNmTJx55pkxffr0eOutt2L48OF5ZHn11Vfj9ttvr/ThAQAAAACwkxFa6HXuuuuumDlzZn7PldWrV8eoUaPi4YcftswQAAAAAIDtJrTQ6wwYMCDmzJmTbwAAAAAAUAqhhV7jgw8+iL/927+NpUuX5lu2miW7bNj555+/xdiXXnoppkyZEk8//XQeZk455ZSYP39+VFdXd+lrPfTQQ/HXf/3X8fOf/zz23Xff+PKXv5yvovnEJz5R7r8WsBXddb5/+tOfjsbGxi32f/WrX42bb765LH8XoGNdPd//3//7f/llQrMx//7v/x6/+93v8m17PPPMM3H11VfHCy+8EEOGDImJEyfG7NmzY/DgweX8KwHb0F3n+wknnBD/+q//usX+L37xi/HII4+U/PcAOteV833Tpk1xxx13xAMPPJC/Nr/zzjvxh3/4h3H22WfHf/tv/y0GDhzYpa/l9R0qq7vOd6/v7GhCC71GU1NT/M3f/E0ceOCBMXr06FiyZMlWx61cuTKOPfbY2GuvveKGG26INWvWxNy5c+NnP/tZ/g2/X7+OT5tHH300/vzP/zz+y3/5L/G//tf/ihdffDGuv/76+PWvfx3f/va3d8DfDNhcd53vffr0icMPPzymTZvWbv8hhxxSrr8K0Imunu/ZP57+8R//Mb9k6Gc+85l4+eWXt+vrLF++PMaNGxeHHnpoLFiwIF5//fX8+8Urr7ySX4IU2PG663zPXt8/9alP5T8bZG/stBo6dGgphw9sh66c72vXro2//Mu/jC984Qtx6aWX5r/k+Oyzz8Zf/dVfxb/8y7/E448/3unX8foOlddd57vXd3Y0oYVeI/vG+eabb+bfjH/605/GUUcdtdVxs2bNig8//DD/gWvYsGH5vmzs+PHj86L+la98pcOvk5X07IXhRz/6UfTt2zfft8cee8Q3v/nNuPLKK70BC92gu873TPa8c845p6zHD3RdV8/3//pf/2t8/etfz3/b7fLLL9/uN15nzJgRe++9dzzxxBPF33DN/jF48cUXx2OPPZa/SQPsWN11vmf23HPPmDRpUqmHDCTqyvmerUbPVqMcffTRxX0XXXRR/vr8jW98I3/zNfsFyI54fYfK667zPeP1nR1JaKHX6N+/f/5NuzOLFy+OCRMmFN90zZx44ol5ILn//vs7fOO1UCjk29///d8XI0sm+8de9obuokWL8h/kgB2rO873tj766KN8GzRoUPIxA2m6er7vs88+yV8jW+2WvdmSrV5rexmR7HIGU6dOzb9feCMGdrzuON/byi431tzc7PJBUAFdOd+zMW3fdG2VXWEi+y337N/mHb3x6vUdeobuON/b8vrOjiK0QBtvvPFGvP3223HkkUdu8diYMWPyy4J1JLtOZLYU8Ygjjmi3f//9948DDjggfxzoGUo931tlvzmTBZbsh7Xst2myf5RdccUV5T5coIKyy4Bu2LBhi9f37B982SpWr++w68lWwWRvwKxfvz7222+/mDx5clx33XWdXlYUqLxVq1blHzu756LXd9j5dfV8b+X1nR3J/0XQRus36CyMbC7bl91sK/ut9ewHr5TnZ2/sAj1Dqed75rDDDos//uM/jhEjRsRvfvOb/HJjU6ZMyefOLhcI7Bqyczr7RYptfb946qmnKnBUwI4yfPjw/LdiP//5z+c36M1WpWf3XPzFL34R9957b6UPD+hEdlPt7PJAf/qnf9rhOK/vsPPr6vme8frOjia0QBvZvRoy2fWcN1dVVVUcs603Xjt7frY0GegZSj3fMw8++GC7zy+88ML8B7z58+fn14R3Uz3YNXT2/aL1cWDX8J3vfKfd5+eee25ccskl8Q//8A/5ytVs5SvQM82ePTtfcZ5dznvIkCEdjvX6Dju37TnfM17f2dGEFmhjt912yz+uW7dui8ey6ze2HZPy/I6eC3SvUs/3bcl+QPvRj34US5YsiXPOOae0gwR6BK/vQHYPh+wNmux+Dt6IgZ7pvvvui5kzZ+b3WcxuZt8Zr++w89re831bvL5TTkILtNG6ZLj1kkJtZfv23nvvDn+7ve3z295cu3XfH/3RH5XxaIFSlHq+b8unPvWp/GN26TFg15B9v9i0adM2v19YvQa7Pq/v0LP93//7f+OCCy6IL33pS/lvt3eF13fYOaWc79vi9Z1yElqgjewHqX322SeWLVu2xWNLly7Nb4jXkezx7Ae17Pltb7Cd/ZD2+uuvx1e/+tVyHzKQqNTzfVt++ctf5h+zuYFdw8iRI/MbZGbfL84444zi/uw+TsuXL4+zzjqrgkcHdAev79Bz/eQnP4m/+Iu/yH8bPfst9759+3bpeV7fYeeTer5vi9d3yklogc2cfvrpceedd8bKlSuLq1Ief/zxePnll/Mlha02bNiQf0PObrr1yU9+Mt936KGHxmc/+9m47bbb8us8ZjfWy9x88835N/9sbqDnKOV8X716df552x/ssnE33HBDfp3nP/mTP+nevwxQNitWrIhBgwYVf8Mtu+bzuHHjoqGhIb9EweDBg/P92feP7EaaEydOrOThAiXY/HzP7qmYvY4PGDCg3bjsZrnZz/YnnXRSJQ4T2IZCoRATJkyIgw46KH74wx9u9X4rrby+w86tlPPd6zvdQWihV/n2t78d7777bv6mauahhx6K1157Lf/zFVdcEXvssUfMmDEjFi1aFCeccEJceeWV+TfjefPmxWGHHZbf6LpVNkdtbW2+7x//8R+L++fOnRunnXZajB8/Ps4+++x48cUX8687efLkGDFiRLf+faE329HnezZf9kNZ9ttvf/iHf5gvNb7nnnviP/7jP+Kb3/xm7Lvvvt3+d4beqivne2NjY9x11135vtaVbLNmzco/HnjggVFfX1+cLzvfs+8L2c01W2VjjznmmDjuuOPy60Bn88+fPz//R1n2mg90jx19vj///PMxadKkfBs+fHh+M+zFixfHs88+m/8iVeqKV2D7dXa+t745mo25+uqr43//7//d7vmf+cxn4uijjy5+7vUdeq4dfb57fac7CC30KtkbqNk/vDLZN+kHHngg3zLnnXde/g+zAw44IJ544om46qqrYvr06Xntzop59tzN79eQzdG6aqXVKaeckn+z/uu//uv8xSBbfvjf//t/z39DBug+O/p8//znPx+f+9zn4u67745f//rX+XOzH86+973v5UuZge7TlfP9P//zP/PX4rbn8XXXXZd/PP7449u98bq11/fDDz88v0nmNddck3/PyObMfoli9uzZO/qvB7Sxo8/3LMRkb7g++OCD8eabb+YrV7M3a2699db8hrtA9+nsfM8u2936puzXv/71LZ6f3cOh7RuvXt+h59rR57vXd7qD0EKvkv2jqyuyb7aPPvpoh2Oyb9K/+93vtvrYqaeemm9A5ezo872uri7/IQ2ovK6c79mbqxs3buzSfNt6fR87dmw8+eST23VsQHnt6PP905/+dPzTP/1T0rEB5dWV831br9nbM9brO1Tejj7fvb7THYQWAAAAAACAREILAAAAAABAIqEFAAAAAAAgkdACAAAAAACQSGgBAAAAAABIJLQAAAAAAAAkEloAAAAAAAASCS0AAAAAAACJhBYAAAAAAIBEQgsAAAAAAEAioQUAAAAAACCR0AIAAAAAAJBIaAEAAAAAAEgktAAAAAAAACQSWgAAAAAAABIJLQAAAAAAAImEFgAAAAAAgERCCwAAAAAAQCKhBQAAAAAAIJHQAgAAAAAAkEhoAQAAAAAASCS0AAAAAAAAJBJaAAAAAAAAEgktAAAAAAAAiYQWAAAAAACAREILAAAAAABAIqEFAAAAAAAgkdACAAAAAACQSGgBAAAAAABIJLQAAAAAAAAkEloAAAAAAAASCS0AAAAAAACJhBYAAAAAAIBEQgsAAAAAAEAioQUAAAAAACCR0AIAAAAAAJBIaAEAAAAAAEgktAAAAAAAACQSWgAAAAAAABIJLQAAAAAAAImEFgAAAAAAgERCCwAAAAAAQCKhBQAAAAAAIJHQAgAAAAAAkEhoAQAAAAAASCS0AAAAAAAAJBJaAAAAAAAAEgktAAAAAAAAiYQWAAAAAACAREILAAAAAABAIqEFAAAAAAAgkdACAAAAAACQSGgBAAAAAABIJLQAAAAAAAAkEloAAAAAAAASCS0AAAAAAACJhBYAAAAAAIBEQgsAAAAAAEAioQUAAAAAACCR0AIAAAAAAJBIaAEAAAAAAEgktAAAAAAAACQSWgAAAAAAABIJLQAAAAAAAImEFgAAAAAAgERCCwAAAAAAQCKhBQAAAAAAIJHQAgAAAAAAkOj/A4sxO65GLR9VAAAAAElFTkSuQmCC" name="Image1" align="left" border="0" width="600px"/>
+	</p>
+	<p>
+	Fig
+1 – Entropies of groups of 11 languages, divided into 50 bins. 
+Entropies on x axis, number of groups within that bin on y axis.</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%">	If you do this ten
+million times, you get entropies ranging between about 10.5 and 12. 
+I divided that range into 50 bins, and counted how many times each
+randomly selected group of 11 languages fell into each bin.  You can
+see that most of the time you’ll get a mean entropy somewhere
+around 11.2 or so, which is definitely below our actual zero-copula
+result of 11.75.  How often can you expect a random group of 11
+languages to have a mean entropy at or above 11.75?  Well in this
+simulation only about 0.08% of the group were that extreme – that’s
+a p value of 0.0017, if you consider both ends.  And as we all know,
+p ≤ 0.05 means you’re a good person, so I have been vindicated!</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%">	OK BUT SO</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%">	This was fun, but
+there are problems.  Oh, so many problems.</p>
+<p style="margin-bottom: 0in; line-height: 100%">	First, the dataset:
+Limited to only the languages that were listed both in the open
+subtitles project and the world language atlas.  The words included
+are from movies only.  To get more reliable data we’d need more
+languages, with more or at least a wider range of sources for the
+words.</p>
+<p style="margin-bottom: 0in; line-height: 100%">	Calculating
+entropy: This may be an intractable problem here.  I went with the
+method of identifying words already present in the dataset, which,
+from what I could see, kept all different spellings, cases, versions,
+etc of a word as separate words.  So “run”, “runs”, and
+“running” are all different.  This may be valid: “run”
+provides different information than “ran” (information about when
+it happened), but isn’t the difference between “run” and “ran”
+different than the difference between “run” and “walk”?  How
+does this factor into what I’m doing here?  
+</p>
+<p style="margin-bottom: 0in; line-height: 100%">	Categorizing
+languages: I may just be plain wrong about how I’ve categorized
+them, since I am unfamiliar with most languages, and it may not be as
+simple as two categories, and even if it were, what are the criteria
+for those categories?  Someone with much greater scholastic depth on
+this count could maybe come up with a spectrum rather than
+categories, but then there’d also be rating languages on that
+spectrum.  
+</p>
+<p style="margin-bottom: 0in; line-height: 100%">	Confounding
+factors: My first thought was that this could also/instead be
+explained by how inflected words are – you know, in order to
+indicate something about a word you change the word itself instead of
+adding a helper word.  Like how a verb is conjugated to match
+I/you/they/we/he, so that you might not even need to use the pronoun
+since it’s understood just from the verb itself.  This could
+certainly make a language more efficient.  For a brief moment I
+thought this might explain away everything I’ve found here –
+except of course there’s not really much relation between how
+inflected a language it is and whether or not it uses a copula.  So
+that would be an additional factor, but unrelated.  
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%">	AND NOW?</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%">	Have I actually
+learned anything from this?  I suppose I’ve verified my instinct,
+but I don’t know for sure what else that might imply or indicate or
+lead to.  I would be interested to see what other language features
+correspond to different entropies, particularly the level of
+inflection in a language, how synthetic vs. analytic it is.  Does it
+mean anything that one lanuage is “more efficient” than another? 
+Are there any practical results? Depending on how seriously you take
+the Sapir-Whorf hypothesis, maybe there are real effects on how
+people think or communicate?  
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%">References</p>
+<p style="margin-bottom: 0in; line-height: 100%">1. MacKay, D.J.C.
+(2003)  <i>Information Theory, Inference, and Learning Algorithms</i>.
+Cambirdge University Press</p>
+<p style="margin-bottom: 0in; line-height: 100%">2. Leon Stassen.
+2013. Zero Copula for Predicate Nominals.</p>
+<p style="margin-bottom: 0in; line-height: 100%">In: Dryer, Matthew
+S. &amp; Haspelmath, Martin (eds.)</p>
+<p style="margin-bottom: 0in; line-height: 100%">The World Atlas of
+Language Structures Online.</p>
+<p style="margin-bottom: 0in; line-height: 100%">Leipzig: Max Planck
+Institute for Evolutionary Anthropology.</p>
+<p style="margin-bottom: 0in; line-height: 100%">(Available online at
+http://wals.info/chapter/120, Accessed on 2018-02-19.)</p>
+<p style="margin-bottom: 0in; line-height: 100%">3. Pierre Lison and
+Jörg Tiedemann, 2016, OpenSubtitles2016: Extracting Large Parallel
+Corpora from Movie and TV Subtitles. In Proceedings of the 10th
+International Conference on Language Resources and Evaluation (LREC
+2016) (<a class="western" href="http://www.opensubtitles.org/" target="_top">http://www.opensubtitles.org/</a>,
+Accessed on 2018-02-19).</p>
+</body>
