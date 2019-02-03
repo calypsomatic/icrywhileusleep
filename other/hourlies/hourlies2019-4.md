@@ -1,0 +1,9 @@
+---
+layout: story
+title: Hourly Comic Day 2019
+image: /assets/comics/2019-4
+imageType: .png
+pageNumber: 4
+baseurl: /other/hourlies/hourlies2019-
+numPages: 6
+---

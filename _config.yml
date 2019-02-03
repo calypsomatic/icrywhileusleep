@@ -1,7 +1,10 @@
 /**theme: jekyll-theme-time-machine**/
 baseurl: /
+/**url: https://localhost/**/
+baseurl: ""
 title: i cry while u sleep
 description: but also while you're awake
 collections: 
     - bios
     - 24hcd
+    - hourlies

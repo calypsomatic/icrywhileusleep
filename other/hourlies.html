@@ -1,0 +1,25 @@
+---
+title: Hourly Comic Days
+layout: default
+---
+
+<div class="subtitle">
+	{{page.title}}
+</div>
+<div style="display: inline;float: right;">
+	<a class="navButton" href="{{site.baseurl}}/index.html"> Home </a>
+</div>
+<br>
+<br>
+
+<div style="margin-left:20px; margin-top: 20px; margin-bottom: 20px;">
+<table class="archive">
+{% tablerow post in site.hourlies  cols:4%}
+	<a href="{{ site.baseurl  }}/other{{ post.url }}">
+		<table class="bio">
+			<tr> <td class="archive-title">{{ post.title }}</td> </tr>
+	    </table>
+	</a>
+{% endtablerow %}
+</table>
+</div>
