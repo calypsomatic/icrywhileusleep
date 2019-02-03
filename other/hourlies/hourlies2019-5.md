@@ -1,7 +1,7 @@
 ---
 layout: story
 title: Hourly Comic Day 2019
-image: /assets/comics/2019-5
+image: /assets/comics/2019-
 imageType: .png
 pageNumber: 5
 baseurl: /other/hourlies/hourlies2019-
