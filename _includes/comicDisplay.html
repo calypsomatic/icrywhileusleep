@@ -15,7 +15,16 @@
 	<section >
 	<br>
 	{% if page.video %}
-		<div class="youtube" id=page.video></div> 
+	<div class="embed-container">
+  <iframe
+      src="https://www.youtube.com/embed/{{ page.video }}"
+      width="700"
+      height="480"
+      frameborder="0"
+      allowfullscreen="">
+  </iframe>
+</div>
+<!--		<div class="youtube" id=page.video></div> -->
 	{% else %}
   <div class="comic-title">    {{ page.title }}</div> <div class="comic-date"> {{page.date | date: "%-d %B %Y"}} </div>
 	  		<img title="{{page.alt}}" src={{site.github.url}}/assets/comics/{{page.image}} class="comic"}/>
