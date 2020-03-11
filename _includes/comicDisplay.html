@@ -15,7 +15,9 @@
 	<section >
 	<br>
 	{% if page.video %}
-		<div class="youtube" id={{page.video}}></div>
+<!--		<div class="youtube" id={{page.video}}></div> -->
+		{assign vid=page.video}
+		{% Video vid 500 400 %}
 	{% else %}
   <div class="comic-title">    {{ page.title }}</div> <div class="comic-date"> {{page.date | date: "%-d %B %Y"}} </div>
 	  		<img title="{{page.alt}}" src={{site.github.url}}/assets/comics/{{page.image}} class="comic"}/>
