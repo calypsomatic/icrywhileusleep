@@ -14,14 +14,14 @@
 
 	<section >
 		<br>
+	{% if page.image %}
   <div class="comic-title">    {{ page.title }}</div> <div class="comic-date"> {{page.date | date: "%-d %B %Y"}} </div>
-			{% if page.image %}
 	  		<img title="{{page.alt}}" src={{site.github.url}}/assets/comics/{{page.image}} class="comic"}/>
-			{% endif %}
-			{% if page.video %}
-				<iframe width="560" height="315" src={{page.video}} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			{% endif %}
-		<br>
+	<br>
+	{% endif %}
+	{% if page.video %}
+		<iframe width="560" height="315" src={{page.video}} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	{% endif %}
 
   {% include navButtons.html%}
 
