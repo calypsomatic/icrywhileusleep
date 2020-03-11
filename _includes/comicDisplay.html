@@ -16,8 +16,7 @@
 	<br>
 	{% if page.video %}
 	{{page.video}}
-	{%assign video = page.video%}
-		{% youtube video %}
+		<div class="youtube" id={{page.video}}></div>
 	{% else %}
   <div class="comic-title">    {{ page.title }}</div> <div class="comic-date"> {{page.date | date: "%-d %B %Y"}} </div>
 	  		<img title="{{page.alt}}" src={{site.github.url}}/assets/comics/{{page.image}} class="comic"}/>
