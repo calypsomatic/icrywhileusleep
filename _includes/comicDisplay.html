@@ -3,24 +3,29 @@
 {% if page.index %}
 	{% assign page = site.posts.first %}
 {% endif %}
- 
+
 
   {%assign firstpost = site.posts.last %}
   {%assign prev = page.previous%}
   {%assign next = page.next%}
-  {% assign latest = site.posts.first %}  
+  {% assign latest = site.posts.first %}
 
   {% include navButtons.html%}
 
 	<section >
 		<br>
   <div class="comic-title">    {{ page.title }}</div> <div class="comic-date"> {{page.date | date: "%-d %B %Y"}} </div>
-	  	<img title="{{page.alt}}" src={{site.github.url}}/assets/comics/{{page.image}} class="comic"}/>
+			{% if page.image %}
+	  		<img title="{{page.alt}}" src={{site.github.url}}/assets/comics/{{page.image}} class="comic"}/>
+			{% endif %}
+			{% if page.video %}
+				<iframe width="560" height="315" src={page.video} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			{% endif %}
 		<br>
 
   {% include navButtons.html%}
 
-    
+
     <h3 style="text-align: center">Comments</h3>
     <div class="comments">
       {% if page.comment %}
@@ -29,7 +34,7 @@
         {% endfor %}
       {% endif %}
     </div>
-	
+
   </section>
 
 	{% include navButtons.html%}
