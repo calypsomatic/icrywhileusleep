@@ -14,15 +14,15 @@
 
 	<section >
 	<br>
-	{% if page.image %}
-  <div class="comic-title">    {{ page.title }}</div> <div class="comic-date"> {{page.date | date: "%-d %B %Y"}} </div>
-	  		<img title="{{page.alt}}" src={{site.github.url}}/assets/comics/{{page.image}} class="comic"}/>
-	<br>
-	{% endif %}
 	{% if page.video %}
+	{{page.video}}
 	{%assign video = page.video%}
 <!-- 		<iframe width="560" height="315" src={{page.video}} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"> </iframe>-->
 		{% youtube video %}
+	{% else %}
+  <div class="comic-title">    {{ page.title }}</div> <div class="comic-date"> {{page.date | date: "%-d %B %Y"}} </div>
+	  		<img title="{{page.alt}}" src={{site.github.url}}/assets/comics/{{page.image}} class="comic"}/>
+	<br>
 	{% endif %}
 
   {% include navButtons.html%}
