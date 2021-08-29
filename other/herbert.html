@@ -1,0 +1,36 @@
+---
+title: Guide to Frank Hertbert Books
+layout: default
+---
+
+<div class="subtitle">
+	{{page.title}}
+</div>
+<div style="display: inline;float: right;">
+	<a class="navButton" href="{{site.baseurl}}/index.html"> Home </a>
+</div>
+<br>
+<br>
+
+<div style="margin-left:20px; margin-top: 20px; margin-bottom: 20px;">
+This is just the very first outline of a project I've been organizing in my
+head for a long time, but am only now actually beginning.  It will be under
+construction for a while yet.
+
+<table>
+  {% for row in site.data.herbert %}
+    {% if forloop.first %}
+    <tr>
+      {% for pair in row %}
+        <th>{{ pair[0] }}</th>
+      {% endfor %}
+    </tr>
+    {% endif %}
+
+    {% tablerow pair in row %}
+      {{ pair[1] }}
+    {% endtablerow %}
+  {% endfor %}
+</table>
+
+</div>
