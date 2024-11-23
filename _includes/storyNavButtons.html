@@ -1,4 +1,7 @@
 
+<p>{{ page | inspect }}</p>
+<p>Content: {{ content | inspect }}</p>
+
 <div style="text-align: center">
     {% if page.pageNumber > 1 %}
  <a class="navButton" href="{{ firstpost | prepend: site.baseurl }}"> Start</a>
