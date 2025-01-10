@@ -6,6 +6,10 @@
   <div>{{ site.baseurl | inspect }}</div>
 	<section >
 		<br>
+    {%- capture backpage -%}
+    {{ page.back }}
+  {%- endcapture -%}
+  <div>{{ page.back }}</div>
   <div style="display: inline;float: right;">
     <a class="navButton" href="{{site.baseurl}}/{{page.back}}"> Back </a>
   </div>
