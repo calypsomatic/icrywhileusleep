@@ -6,5 +6,5 @@ imageType: .jpeg
 pageNumber: 1
 baseurl: /hourlies
 numPages: 8
-origin: hourlies.html
+origin: other/hourlies.html
 ---
