@@ -6,4 +6,5 @@ imageType: .jpeg
 pageNumber: 4
 baseurl: /other/hourlies/hourlies2015-
 numPages: 8
+origin: other/hourlies.html
 ---

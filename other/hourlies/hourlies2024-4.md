@@ -6,4 +6,5 @@ imageType: .jpg
 pageNumber: 4
 baseurl: /other/hourlies/hourlies2024-
 numPages: 10
+origin: other/hourlies.html
 ---

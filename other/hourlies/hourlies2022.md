@@ -6,4 +6,5 @@ imageType: .jpg
 pageNumber: 1
 baseurl: /other/hourlies/hourlies2022-
 numPages: 5
+origin: other/hourlies.html
 ---

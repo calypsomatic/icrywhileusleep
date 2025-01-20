@@ -6,4 +6,5 @@ imageType: .png
 pageNumber: 2
 baseurl: /other/hourlies/hourlies2019-
 numPages: 6
+origin: other/hourlies.html
 ---
